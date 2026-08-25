@@ -3,40 +3,45 @@ h1 {
   margin-bottom: 30px;
 }
 
-.produtos {
+.lista-produtos {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 20px;
 }
 
 .produto {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f8f8f8;
+  border-radius: 10px;
+  gap: 30px;
 }
 
-.produto img {
-  width: 180px;
-  height: 180px;
+.imagem-produto {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem-produto img {
+  width: 200px;
+  height: 200px;
   object-fit: contain;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
 }
 
-.informacoes {
+.informacoes-produto {
   flex: 1;
 }
 
-.informacoes h2 {
+.informacoes-produto h2 {
   margin-top: 0;
 }
 
-.informacoes p {
-  margin: 10px 0;
+.informacoes-produto p {
+  margin: 8px 0;
 }
