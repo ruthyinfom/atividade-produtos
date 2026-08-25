@@ -1,21 +1,25 @@
-<h1>Produtos</h1>
+<h1>Lista de Produtos</h1>
 
-<div class="produtos">
-  @for (produto of produtos; track produto.id) {
-    <div class="produto">
-      <img [src]="produto.foto" [alt]="produto.nome">
-
-      <div class="informacoes">
-        <h2>{{ produto.nome }}</h2>
-
-        <p><strong>Marca:</strong> {{ produto.marca }}</p>
-
-        <p>{{ produto.descricao }}</p>
-
-        <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
-
-        <p><strong>Quantidade disponível:</strong> {{ produto.quantidade }}</p>
-      </div>
+<div class="lista-produtos">
+  <div class="produto" *ngFor="let produto of produtos">
+    <div class="imagem-produto">
+      <img
+        [src]="produto.foto"
+        [alt]="produto.nome"
+      >
     </div>
-  }
+
+    <div class="informacoes-produto">
+
+      <h2>{{ produto.nome }}</h2>
+
+      <p><strong>Marca:</strong> {{ produto.marca }}</p>
+      <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
+      <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+      <p><strong>Quantidade:</strong> {{ produto.quantidade }}</p>
+
+    </div>
+
+  </div>
+
 </div>
