@@ -1,17 +1,18 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Produto } from './produto';
 import { Observable } from 'rxjs';
+import { Produto } from './produto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
-  readonly API = 'http://localhost:3000';
-  readonly #http = inject(HttpClient);
+  private url = 'http://localhost:3000/produtos';
 
-  obterTodos(): Observable<Produto[]> {
-    return this.#http.get<Produto[]>(`${this.API}/produtos`);
+  constructor(private http: HttpClient) {}
+
+  obterProdutos(): Observable<Produto[]> {
+    return this.http.get<Produto[]>(this.url);
   }
 }
