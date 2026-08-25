@@ -1,0 +1,42 @@
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.produto {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.produto img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.informacoes {
+  flex: 1;
+}
+
+.informacoes h2 {
+  margin-top: 0;
+}
+
+.informacoes p {
+  margin: 10px 0;
+}
