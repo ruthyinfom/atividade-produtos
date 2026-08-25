@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { LojaFront } from './loja-front/loja-front';
+import { ProdutoComponent } from './produto-component/produto-component';
 
 export const routes: Routes = [
-    {path: "produtos", component: LojaFront }, 
+    {path: "produtos", component: ProdutoComponent }, 
     { path: "", redirectTo: "/produtos", pathMatch: "full"}
 ];
