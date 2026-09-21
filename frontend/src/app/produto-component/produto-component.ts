@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProdutoService } from '../produto-service';
 import { Produto } from '../produto';
+import { CarrinhoService, Item } from '../carrinho-service';
 
 @Component({
   selector: 'app-produto-component',
@@ -16,7 +17,8 @@ export class ProdutoComponent implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private carrinho: CarrinhoService
   ) {}
 
   ngOnInit(): void {
@@ -40,5 +42,17 @@ export class ProdutoComponent implements OnInit {
       }
     });
 
+  }
+
+  adicionar(p: Produto) {
+    if (p) {
+      let it: Item = {
+        id: p.id,
+        produto: p,
+        quantidade: 1 
+      }
+      this.#carrinho.adicionarItem(it)
+    }
+    console.log(this.#carrinho.itens())
   }
 }
