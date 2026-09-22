@@ -10,14 +10,19 @@ import { Produto } from '../produto';
   styleUrl: './inicio.css',
 })
 export class Inicio {
+
   #produto = inject(ProdutoService)
   #carrinho = inject(CarrinhoService)
 
-  protected readonly produtos = signal<Produto | undefined>(undefined)
+  protected readonly produtos = signal<Produto[]>([])
 
   constructor() {
     this.#produto.obterProdutos().subscribe(prods => {
       this.produtos.set(prods)
     })
   }
+
+  adicionar(p: Produto) {
+  this.#carrinho.adicionarItem(p);
+}
 }

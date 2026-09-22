@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProdutoService } from '../produto-service';
 import { Produto } from '../produto';
-import { CarrinhoService, Item } from '../carrinho-service';
+import { CarrinhoService } from '../carrinho-service';
 
 @Component({
   selector: 'app-produto-component',
@@ -46,13 +46,9 @@ export class ProdutoComponent implements OnInit {
 
   adicionar(p: Produto) {
     if (p) {
-      let it: Item = {
-        id: p.id,
-        produto: p,
-        quantidade: 1 
-      }
-      this.#carrinho.adicionarItem(it)
+      
+      this.carrinho.adicionarItem(p)
     }
-    console.log(this.#carrinho.itens())
+    console.log(this.carrinho.itens())
   }
 }
