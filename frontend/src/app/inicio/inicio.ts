@@ -2,10 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { ProdutoService } from '../produto-service';
 import { CarrinhoService } from '../carrinho-service';
 import { Produto } from '../produto';
+import { Carrinho } from '../carrinho/carrinho';
 
 @Component({
   selector: 'app-inicio',
-  imports: [],
+  imports: [Carrinho],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })
