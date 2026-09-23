@@ -1,9 +1,18 @@
-<div class="header">
+<div class="cabecalho">
+
+  <div class="titulo">
     <h1>Loja Virtual</h1>
-    <app-carrinho></app-carrinho>
+    <p>Confira nossos produtos</p>
+  </div>
+
+  <button
+    type="button"
+    class="botao-carrinho"
+    (click)="irCarrinho()"
+  >
+    🛒 Carrinho ({{ qtdItens() }})
+  </button>
+
 </div>
 
-@for(p of produtos(); track p.id) {
-    <p>{{p.nome}}</p>
-    <input type="button" value="Adicionar ao carrinho" (click)="adicionar(p)">
-}
+<app-produto-component></app-produto-component>

@@ -11,11 +11,11 @@ export class Carrinho {
 
   protected carrinhoService = inject(CarrinhoService);
 
-  protected qtdItens = computed(() =>
-    this.carrinhoService.itens().reduce(
+  quantidadeItens = computed(() => {
+    return this.carrinhoService.itens().reduce(
       (total, item) => total + item.quantidade,
       0
-    )
-  );
+    );
+  });
 
 }

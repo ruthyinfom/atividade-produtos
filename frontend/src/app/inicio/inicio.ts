@@ -1,29 +1,28 @@
-import { Component, inject, signal } from '@angular/core';
-import { ProdutoService } from '../produto-service';
+import { Component, computed, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdutoComponent } from '../produto-component/produto-component';
 import { CarrinhoService } from '../carrinho-service';
-import { Produto } from '../produto';
-import { Carrinho } from '../carrinho/carrinho';
 
 @Component({
   selector: 'app-inicio',
-  imports: [Carrinho],
+  imports: [ProdutoComponent],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })
 export class Inicio {
 
-  #produto = inject(ProdutoService)
-  #carrinho = inject(CarrinhoService)
+  #carrinho = inject(CarrinhoService);
+  #router = inject(Router);
 
-  protected readonly produtos = signal<Produto[]>([])
+  protected qtdItens = computed(() =>
+    this.#carrinho.itens().reduce(
+      (total, item) => total + item.quantidade,
+      0
+    )
+  );
 
-  constructor() {
-    this.#produto.obterProdutos().subscribe(prods => {
-      this.produtos.set(prods)
-    })
+  irCarrinho() {
+    this.#router.navigate(['/carrinho']);
   }
 
-  adicionar(p: Produto) {
-  this.#carrinho.adicionarItem(p);
-}
 }

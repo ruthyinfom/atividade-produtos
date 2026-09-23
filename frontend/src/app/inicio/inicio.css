@@ -1,9 +1,50 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 40px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid #ddd;
 }
 
-.header > h1 {
-    font-size: 32px;
+.titulo h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.titulo p {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 16px;
+}
+
+.botao-carrinho {
+  border: none;
+  border-radius: 8px;
+
+  padding: 11px 18px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.botao-carrinho:hover {
+  transform: translateY(-2px);
+}
+
+.conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px 40px;
+}
+
+.conteudo h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
 }

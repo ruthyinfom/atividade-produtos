@@ -1,7 +1,9 @@
 <h1>Lista de Produtos</h1>
 
 <div class="lista-produtos">
+
   <div class="produto" *ngFor="let produto of produtos">
+
     <div class="imagem-produto">
       <img
         [src]="produto.foto"
@@ -13,11 +15,29 @@
 
       <h2>{{ produto.nome }}</h2>
 
-      <p><strong>Marca:</strong> {{ produto.marca }}</p>
-      <p><strong>Descrição:</strong> {{ produto.descricao }}</p>
-      <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
-      <p><strong>Quantidade:</strong> {{ produto.quantidade }}</p>
-      <input type="button" value="Adicionar ao carrinho" (click)="adicionar(produto)">
+      <p>
+        <strong>Marca:</strong>
+        {{ produto.marca }}
+      </p>
+
+      <p>
+        <strong>Descrição:</strong>
+        {{ produto.descricao }}
+      </p>
+
+      <p>
+        <strong>Preço:</strong>
+        R$ {{ produto.preco }}
+      </p>
+
+      <p>
+        <strong>Quantidade:</strong>
+        {{ produto.quantidade }}
+      </p>
+
+      <button (click)="adicionar(produto)">
+        Adicionar ao carrinho
+      </button>
 
     </div>
 

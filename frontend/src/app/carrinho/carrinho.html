@@ -1,4 +1,77 @@
-<div class="carrinho-container"> 
-    <span class="qtd-itens">{{qtdItens()}}</span>
-    <span>Carrinho</span>
+<h1>
+  Carrinho de compras
+  ({{ quantidadeItens() }})
+</h1>
+
+<div class="lista-carrinho">
+
+  @for (item of carrinhoService.itens(); track item.id) {
+
+    <div class="produto">
+
+      <div class="imagem-produto">
+        <img
+          [src]="item.produto.foto"
+          [alt]="item.produto.nome"
+        >
+      </div>
+
+      <div class="informacoes-produto">
+
+        <h2>{{ item.produto.nome }}</h2>
+
+        <p>
+          <strong>Marca:</strong>
+          {{ item.produto.marca }}
+        </p>
+
+        <p>
+          <strong>Descrição:</strong>
+          {{ item.produto.descricao }}
+        </p>
+
+        <p>
+          <strong>Preço:</strong>
+          R$ {{ item.produto.preco }}
+        </p>
+
+        <div class="controles">
+
+          <button
+            type="button"
+            (click)="carrinhoService.diminuirQuantidade(item.id)"
+          >
+            -
+          </button>
+
+          <span>{{ item.quantidade }}</span>
+
+          <button
+            type="button"
+            (click)="carrinhoService.aumentarQuantidade(item.id)"
+          >
+            +
+          </button>
+
+        </div>
+
+        <button
+          type="button"
+          (click)="carrinhoService.removerItem(item.id)"
+        >
+          Excluir
+        </button>
+
+      </div>
+
+    </div>
+
+  }
+
+</div>
+
+<div class="total">
+  <strong>
+    Total: R$ {{ carrinhoService.obterTotal() }}
+  </strong>
 </div>
